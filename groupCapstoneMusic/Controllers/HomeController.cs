@@ -1,5 +1,7 @@
-﻿using System;
+﻿using groupCapstoneMusic.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +10,8 @@ namespace groupCapstoneMusic.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -47,7 +51,7 @@ namespace groupCapstoneMusic.Controllers
 
             switch (s)
             {
-                case "5": // school voting
+                case "5": // user voting
                           // check if he has already voted
                 var isIt = db.VoteModels.Where(v => v.SectionId == sectionId &&
                     v.UserName.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase) && v.VoteForId == autoId).FirstOrDefault();
