@@ -9,6 +9,12 @@ namespace groupCapstoneMusic
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            CreateRolesAndUsers();
+        }
+
+        private void CreateRolesAndUsers()
+        {
+            
         }
     }
 }
