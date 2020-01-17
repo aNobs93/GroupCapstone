@@ -22,6 +22,7 @@ namespace groupCapstoneMusic.Models
     {
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<Event> events { get; set; }
         public DbSet<Musician> Musicians { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

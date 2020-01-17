@@ -3,7 +3,7 @@ namespace groupCapstoneMusic.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class InitialMigrationAfterDeletion : DbMigration
     {
         public override void Up()
         {
@@ -11,13 +11,21 @@ namespace groupCapstoneMusic.Migrations
                 "dbo.Customers",
                 c => new
                     {
-                        ID = c.Int(nullable: false, identity: true),
+                        CustomerId = c.Int(nullable: false, identity: true),
                         ApplicationId = c.String(maxLength: 128),
                         FirstName = c.String(),
                         LastName = c.String(),
+                        Bio = c.String(),
+                        Email = c.String(),
+                        StreetAddress = c.String(),
+                        City = c.String(),
+                        State = c.String(),
                         ZipCode = c.Int(nullable: false),
+                        MinBudget = c.Double(nullable: false),
+                        MaxBudget = c.Double(nullable: false),
+                        Rating = c.Double(nullable: false),
                     })
-                .PrimaryKey(t => t.ID)
+                .PrimaryKey(t => t.CustomerId)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationId)
                 .Index(t => t.ApplicationId);
             
@@ -86,8 +94,16 @@ namespace groupCapstoneMusic.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         ApplicationId = c.String(maxLength: 128),
                         FirstName = c.String(),
+                        PriceRange = c.Int(nullable: false),
+                        Email = c.String(),
+                        City = c.String(),
+                        Zip = c.Int(nullable: false),
+                        Bio = c.String(),
+                        Genre = c.String(),
+                        rating = c.Double(nullable: false),
+                        SetRate = c.Double(nullable: false),
                         LastName = c.String(),
-                        ZipCode = c.Int(nullable: false),
+                        DatesAvailable = c.String(),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationId)

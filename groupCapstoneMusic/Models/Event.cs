@@ -35,6 +35,10 @@ namespace groupCapstoneMusic.Models
         [Display(Name = "Event Time")]
         public string EventTime { get; set; }
 
+        public string Lat { get; set; }
+
+        public string Lng { get; set; }
+
 
 
     }
