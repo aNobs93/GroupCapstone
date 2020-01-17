@@ -81,6 +81,26 @@ namespace groupCapstoneMusic.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var user = await UserManager.FindAsync(model.UserName, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+                    if (roles.Contains("Customer"))
+                    {
+                        var customer = db.Customers.Where(u => u.ApplicationId == user.Id).FirstOrDefault();
+                        if(customer == null)
+                        {
+                            return RedirectToAction("", ""); //If they never made profile after registration then they must go to "Create", "Customer"
+                        }
+                        return RedirectToAction("", ""); //Redirect to there profile "Index", "Customer"
+                    }
+                    else if (roles.Contains("Musician"))
+                    {
+                        var musician = db.Musicians.Where(u => u.ApplicationId == user.Id).FirstOrDefault();
+                        if(musician == null)
+                        {
+                            return RedirectToAction("", ""); //If they never made profile after registration then they must go to "Create", "Musician"
+                        }
+                        return RedirectToAction("", ""); //Redirect to there profile "Index", "Musicians"
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -166,7 +186,19 @@ namespace groupCapstoneMusic.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                    return RedirectToAction("Index", "Users");
+                    if (model.UserRoles.Equals("Customer"))
+                    {
+                        return RedirectToAction("Create", "Customer"); //
+                    }
+                    else if (model.UserRoles.Equals("Musician"))
+                    {
+                        return RedirectToAction("Create", "Musician");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    
                 }
                 ViewBag.Name = new SelectList(db.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
                 AddErrors(result);
@@ -178,6 +210,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // GET: /Account/ConfirmEmail
+        //WE SHOULD LEARN TO DO THIS---------------------------------------
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -191,6 +224,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // GET: /Account/ForgotPassword
+        //LEARN HOW TO DO THIS------------------------------------------------
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
@@ -199,6 +233,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // POST: /Account/ForgotPassword
+        //LEARN HOW TO DO THIS------------------------------------------------
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -227,6 +262,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
+        //LEARN HOW TO DO THIS-------------------------------------------
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
@@ -235,6 +271,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // GET: /Account/ResetPassword
+        //LEARN HOW TO DO THIS---------------------------------------------
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
@@ -243,6 +280,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // POST: /Account/ResetPassword
+        //LEARN HOW TO DO THIS-------------------------------------------
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -269,6 +307,7 @@ namespace groupCapstoneMusic.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
+        //LEARN HOW TO DO THIS-------------------------------------------
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {

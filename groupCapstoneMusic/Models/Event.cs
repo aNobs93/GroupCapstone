@@ -12,6 +12,10 @@ namespace groupCapstoneMusic.Models
         [Key]
         public int EventId { get; set; }
 
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
         public string Venue { get; set; }
 
         public string Location { get; set; }
@@ -26,9 +30,7 @@ namespace groupCapstoneMusic.Models
         [Display(Name = "Event Time")]
         public string EventTime { get; set; }
 
-        [ForeignKey("ApplicationUser")]
-        public string ApplicationId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+
 
     }
 }

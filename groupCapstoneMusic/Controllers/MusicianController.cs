@@ -1,4 +1,6 @@
-﻿using System;
+﻿using groupCapstoneMusic.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,8 +8,10 @@ using System.Web.Mvc;
 
 namespace groupCapstoneMusic.Controllers
 {
+    [Authorize]
     public class MusicianController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Musician
         public ActionResult Index()
         {
@@ -23,17 +27,20 @@ namespace groupCapstoneMusic.Controllers
         // GET: Musician/Create
         public ActionResult Create()
         {
-            return View();
+            Musician musician = new Musician();
+            return View(musician);
         }
 
         // POST: Musician/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Musician musician)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                string userId = User.Identity.GetUserId();
+                musician.ApplicationId = userId;
+                db.Musicians.Add(musician);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
