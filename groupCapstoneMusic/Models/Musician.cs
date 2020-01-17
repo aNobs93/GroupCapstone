@@ -32,13 +32,11 @@ namespace groupCapstoneMusic.Models
 
         public string Genre { get; set; }
 
-        public double rating { get; set; }
+        [Display(Name = "Set Rating")]
+        public double Rating { get; set; }
 
         [Display(Name = "Set Rate")]
         public double SetRate { get; set; }
-
-        [Display(Name = "Set Rate")]
-        public string LastName { get; set; }
 
         [Display(Name = "Dates Available")]
         public string DatesAvailable { get; set; }      

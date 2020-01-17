@@ -177,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\202001171439036_InitialMigrationAfterDeletion.cs" />
     <Compile Include="Migrations\202001171439036_InitialMigrationAfterDeletion.Designer.cs">
       <DependentUpon>202001171439036_InitialMigrationAfterDeletion.cs</DependentUpon>
@@ -188,6 +189,11 @@
     <Compile Include="Migrations\202001171523255_CodeFirstMigration.cs" />
     <Compile Include="Migrations\202001171523255_CodeFirstMigration.Designer.cs">
       <DependentUpon>202001171523255_CodeFirstMigration.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\202001171453478_NewMigrationAfterFix.cs" />
+    <Compile Include="Migrations\202001171453478_NewMigrationAfterFix.Designer.cs">
+      <DependentUpon>202001171453478_NewMigrationAfterFix.cs</DependentUpon>
+>>>>>>> f5ef58d9f063f0d09a5713d34ed488f8886529db
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -280,6 +286,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\202001171439036_InitialMigrationAfterDeletion.resx">
       <DependentUpon>202001171439036_InitialMigrationAfterDeletion.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +295,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001171523255_CodeFirstMigration.resx">
       <DependentUpon>202001171523255_CodeFirstMigration.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\202001171453478_NewMigrationAfterFix.resx">
+      <DependentUpon>202001171453478_NewMigrationAfterFix.cs</DependentUpon>
+>>>>>>> f5ef58d9f063f0d09a5713d34ed488f8886529db
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

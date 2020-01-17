@@ -51,6 +51,7 @@ namespace groupCapstoneMusic.Controllers
 
         //    switch (s)
         //    {
+<<<<<<< HEAD
         //        case "5": // user voting
         //                  // check if he has already voted
         //        var isIt = db.VoteModels.Where(v => v.SectionId == sectionId &&
@@ -83,12 +84,53 @@ namespace groupCapstoneMusic.Controllers
         //                    currentNumberOfVote++;
         //                    // set the updated value into the selected votes
         //                    votes[thisVote - 1] = currentNumberOfVote.ToString();
+=======
+        //        case "5": //user voting
+        //            check if he has already voted
+        // var isIt = db.VoteModels.Where(v => v.SectionId == sectionId &&
+        //     v.UserName.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase) && v.VoteForId == autoId).FirstOrDefault();
+        //            if (isIt != null)
+        //            {
+        //                // keep the school voting flag to stop voting by this member
+        //                HttpCookie cookie = new HttpCookie(url, "true");
+        //                Response.Cookies.Add(cookie);
+        //                return Json("<br />You have already rated this post, thanks !");
+        //            }
+
+        //            var sch = db.SchoolModels.Where(sc => sc.AutoId == autoId).FirstOrDefault();
+        //            if (sch != null)
+        //            {
+        //                object obj = sch.Votes;
+
+        //                string updatedVotes = string.Empty;
+        //                string[] votes = null;
+        //                if (obj != null && obj.ToString().Length > 0)
+        //                {
+        //                    string currentVotes = obj.ToString(); // votes pattern will be 0,0,0,0,0
+        //                    votes = currentVotes.Split(',');
+        //                    // if proper vote data is there in the database
+        //                    if (votes.Length.Equals(5))
+        //                    {
+        //                        // get the current number of vote count of the selected vote, always say -1 than the current vote in the array 
+        //                        int currentNumberOfVote = int.Parse(votes[thisVote - 1]);
+        //                        // increase 1 for this vote
+        //                        currentNumberOfVote++;
+        //                        // set the updated value into the selected votes
+        //                        votes[thisVote - 1] = currentNumberOfVote.ToString();
+        //                    }
+        //                    else
+        //                    {
+        //                        votes = new string[] { "0", "0", "0", "0", "0" };
+        //                        votes[thisVote - 1] = "1";
+        //                    }
+>>>>>>> f5ef58d9f063f0d09a5713d34ed488f8886529db
         //                }
         //                else
         //                {
         //                    votes = new string[] { "0", "0", "0", "0", "0" };
         //                    votes[thisVote - 1] = "1";
         //                }
+<<<<<<< HEAD
         //            }
         //            else
         //            {
@@ -127,6 +169,40 @@ namespace groupCapstoneMusic.Controllers
         //        break;
         //        default:
         //        break;
+=======
+
+        //                concatenate all arrays now
+        //                foreach (string ss in votes)
+        //                {
+        //                    updatedVotes += ss + ",";
+        //                }
+        //                updatedVotes = updatedVotes.Substring(0, updatedVotes.Length - 1);
+
+        //                db.Entry(sch).State = EntityState.Modified;
+        //                sch.Votes = updatedVotes;
+        //                db.SaveChanges();
+
+        //                VoteModel vm = new VoteModel()
+        //                {
+        //                    Active = true,
+        //                    SectionId = Int16.Parse(s),
+        //                    UserName = User.Identity.Name,
+        //                    Vote = thisVote,
+        //                    VoteForId = autoId
+        //                };
+
+        //                db.VoteModels.Add(vm);
+
+        //                db.SaveChanges();
+
+        //                // keep the school voting flag to stop voting by this member
+        //                HttpCookie cookie = new HttpCookie(url, "true");
+        //                Response.Cookies.Add(cookie);
+        //            }
+        //            break;
+        //        default:
+        //            break;
+>>>>>>> f5ef58d9f063f0d09a5713d34ed488f8886529db
         //    }
         //    return Json("<br />You rated " + r + " star(s), thanks !");
         //}
