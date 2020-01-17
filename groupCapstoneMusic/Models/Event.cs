@@ -18,7 +18,12 @@ namespace groupCapstoneMusic.Models
 
         public string Venue { get; set; }
 
-        public string Location { get; set; }
+        [Display(Name ="Street Address")]
+        public string StreetAddress { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
 
         public string Genre { get; set; }
 
