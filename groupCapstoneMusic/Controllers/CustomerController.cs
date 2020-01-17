@@ -29,12 +29,29 @@ namespace groupCapstoneMusic.Controllers
         }
 
         //POST: Customer/Edit/5
-        public ActionResult CreateEvent(int id, Customer customer)
-        {
-            //var editedCustomer = db.Events.Where(a => a.CustomerId == id).FirstOrDefault();
-            //editedCustomer.
-            return View();
-        }
+        //public ActionResult CreateEvent(int id, Event event, Customer customer)
+
+        //try
+        //{
+        //var foundCustomer = db.Customers.Where(a => a.CustomerId == id).FirstOrDefault();
+        //var editedEvent = db.Events.Where(a => a.ApplicationId == foundCustomer.ApplicationId).FirstOrDefault();
+        //editedEvent.Genre = event.Genre;
+        //editedEvent.Venue = event.Venue;
+        //editedEvent.Audience = event.Audience;
+        //editedEvent.EventDate = event.EventDate;
+        //editedEvent.EventTime = event.EventTime;
+        //editedEvent.StreetAddress = event.StreetAddress;
+        //editedEvent.City = event.City;
+        //editedEvent.State = event.State;
+        //editedEvent.ZipCode = event.ZipCode;
+        //db.SaveChanges();
+        //return View(index);
+        //}
+
+        //catch
+        //{
+        //return View();
+        //}
 
         // GET: Customer/Details/5
         public ActionResult Details(int id)
@@ -61,7 +78,6 @@ namespace groupCapstoneMusic.Controllers
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 
-
                 return View("Index");
             }
             catch

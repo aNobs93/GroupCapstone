@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MusicianController.cs" />
@@ -180,6 +181,10 @@
     <Compile Include="Migrations\202001171453478_NewMigrationAfterFix.cs" />
     <Compile Include="Migrations\202001171453478_NewMigrationAfterFix.Designer.cs">
       <DependentUpon>202001171453478_NewMigrationAfterFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171543126_NewMigration.cs" />
+    <Compile Include="Migrations\202001171543126_NewMigration.Designer.cs">
+      <DependentUpon>202001171543126_NewMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -255,6 +260,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Event\" />
     <Folder Include="Views\Musician\" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +279,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001171453478_NewMigrationAfterFix.resx">
       <DependentUpon>202001171453478_NewMigrationAfterFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171543126_NewMigration.resx">
+      <DependentUpon>202001171543126_NewMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -19,9 +19,6 @@ namespace groupCapstoneMusic.Models
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Price Range")]
-        public int PriceRange { get; set; }
-
         public string Email { get; set; }
 
         public string City { get; set; }

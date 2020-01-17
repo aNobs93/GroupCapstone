@@ -30,105 +30,105 @@ namespace groupCapstoneMusic.Controllers
 
             return View();
         }
-        //public JsonResult SendRating(string r, string s, string id, string url)
+        //public jsonresult sendrating(string r, string s, string id, string url)
         //{
-        //    int autoId = 0;
-        //    Int16 thisVote = 0;
-        //    Int16 sectionId = 0;
-        //    Int16.TryParse(s, out sectionId);
-        //    Int16.TryParse(r, out thisVote);
-        //    int.TryParse(id, out autoId);
+        //    int autoid = 0;
+        //    int16 thisvote = 0;
+        //    int16 sectionid = 0;
+        //    int16.tryparse(s, out sectionid);
+        //    int16.tryparse(r, out thisvote);
+        //    int.tryparse(id, out autoid);
 
-        //    if (!User.Identity.IsAuthenticated)
+        //    if (!user.identity.isauthenticated)
         //    {
-        //        return Json("Not authenticated!");
+        //        return json("not authenticated!");
         //    }
 
-        //    if (autoId.Equals(0))
+        //    if (autoid.equals(0))
         //    {
-        //        return Json("Sorry, record to vote doesn't exists");
+        //        return json("sorry, record to vote doesn't exists");
         //    }
 
         //    switch (s)
         //    {
         //        case "5": //user voting
-        //            check if he has already voted
-        // var isIt = db.VoteModels.Where(v => v.SectionId == sectionId &&
-        //     v.UserName.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase) && v.VoteForId == autoId).FirstOrDefault();
-        //            if (isIt != null)
+        //            //check if he has already voted
+        // var isit = db.votemodels.where(v => v.sectionid == sectionid &&
+        //     v.username.equals(user.identity.name, stringcomparison.currentcultureignorecase) && v.voteforid == autoid).firstordefault();
+        //            if (isit != null)
         //            {
         //                // keep the school voting flag to stop voting by this member
-        //                HttpCookie cookie = new HttpCookie(url, "true");
-        //                Response.Cookies.Add(cookie);
-        //                return Json("<br />You have already rated this post, thanks !");
+        //                httpcookie cookie = new httpcookie(url, "true");
+        //                response.cookies.add(cookie);
+        //                return json("<br />you have already rated this post, thanks !");
         //            }
 
-        //            var sch = db.SchoolModels.Where(sc => sc.AutoId == autoId).FirstOrDefault();
+        //            var sch = db.schoolmodels.where(sc => sc.autoid == autoid).firstordefault();
         //            if (sch != null)
         //            {
-        //                object obj = sch.Votes;
+        //                object obj = sch.votes;
 
-        //                string updatedVotes = string.Empty;
+        //                string updatedvotes = string.empty;
         //                string[] votes = null;
-        //                if (obj != null && obj.ToString().Length > 0)
+        //                if (obj != null && obj.tostring().length > 0)
         //                {
-        //                    string currentVotes = obj.ToString(); // votes pattern will be 0,0,0,0,0
-        //                    votes = currentVotes.Split(',');
+        //                    string currentvotes = obj.tostring(); // votes pattern will be 0,0,0,0,0
+        //                    votes = currentvotes.split(',');
         //                    // if proper vote data is there in the database
-        //                    if (votes.Length.Equals(5))
+        //                    if (votes.length.equals(5))
         //                    {
         //                        // get the current number of vote count of the selected vote, always say -1 than the current vote in the array 
-        //                        int currentNumberOfVote = int.Parse(votes[thisVote - 1]);
+        //                        int currentnumberofvote = int.parse(votes[thisvote - 1]);
         //                        // increase 1 for this vote
-        //                        currentNumberOfVote++;
+        //                        currentnumberofvote++;
         //                        // set the updated value into the selected votes
-        //                        votes[thisVote - 1] = currentNumberOfVote.ToString();
+        //                        votes[thisvote - 1] = currentnumberofvote.tostring();
         //                    }
         //                    else
         //                    {
         //                        votes = new string[] { "0", "0", "0", "0", "0" };
-        //                        votes[thisVote - 1] = "1";
+        //                        votes[thisvote - 1] = "1";
         //                    }
         //                }
         //                else
         //                {
         //                    votes = new string[] { "0", "0", "0", "0", "0" };
-        //                    votes[thisVote - 1] = "1";
+        //                    votes[thisvote - 1] = "1";
         //                }
 
-        //                concatenate all arrays now
+        //                //concatenate all arrays now
         //                foreach (string ss in votes)
         //                {
-        //                    updatedVotes += ss + ",";
+        //                    updatedvotes += ss + ",";
         //                }
-        //                updatedVotes = updatedVotes.Substring(0, updatedVotes.Length - 1);
+        //                updatedvotes = updatedvotes.substring(0, updatedvotes.length - 1);
 
-        //                db.Entry(sch).State = EntityState.Modified;
-        //                sch.Votes = updatedVotes;
-        //                db.SaveChanges();
+        //                db.entry(sch).state = entitystate.modified;
+        //                sch.votes = updatedvotes;
+        //                db.savechanges();
 
-        //                VoteModel vm = new VoteModel()
+        //                votemodel vm = new votemodel()
         //                {
-        //                    Active = true,
-        //                    SectionId = Int16.Parse(s),
-        //                    UserName = User.Identity.Name,
-        //                    Vote = thisVote,
-        //                    VoteForId = autoId
+        //                    active = true,
+        //                    sectionid = int16.parse(s),
+        //                    username = user.identity.name,
+        //                    vote = thisvote,
+        //                    voteforid = autoid
         //                };
 
-        //                db.VoteModels.Add(vm);
+        //                db.votemodels.add(vm);
 
-        //                db.SaveChanges();
+        //                db.savechanges();
 
         //                // keep the school voting flag to stop voting by this member
-        //                HttpCookie cookie = new HttpCookie(url, "true");
-        //                Response.Cookies.Add(cookie);
+        //                httpcookie cookie = new httpcookie(url, "true");
+        //                response.cookies.add(cookie);
         //            }
         //            break;
         //        default:
         //            break;
         //    }
-        //    return Json("<br />You rated " + r + " star(s), thanks !");
+        //    return json("<br />you rated " + r + " star(s), thanks !");
         //}
     }
 }
