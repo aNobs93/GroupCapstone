@@ -53,6 +53,12 @@ namespace groupCapstoneMusic.Controllers
         //return View();
         //}
 
+        public void GetLngAndLat(Customer customer)
+        {
+            
+
+        }
+
         // GET: Customer/Details/5
         public ActionResult Details(int id)
         {
